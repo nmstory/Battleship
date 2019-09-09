@@ -1,9 +1,10 @@
 public interface IGame {
-    Grid createGrid();
+    //Grid createGrid();
+    Player createPlayerOne(Grid g, String name);
 
     /* TO IMPLENENT:
     int turn(int previous);
-    Player createPlayerOne(Grid g);
+
     Player createPlayerTwo(Grid g, boolean AI);
 
     Round playerOneTurn(Grid g);
