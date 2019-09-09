@@ -16,4 +16,8 @@ public class Player {
     public void setCarrierLoc(int carrierRow, int carrierColumn){
         BattleshipGrid.setOccupancyForCarrier(BattleshipGrid,carrierRow,carrierColumn);
     }
+
+    public String toString(){
+        return BattleshipGrid.toString();
+    }
 }

@@ -20,7 +20,8 @@ public class Grid {
     public void setOccupancyForCarrier(Grid g, int carrierRow, int carrierColumn) {
         ListIterator<GridRow> iterator = grid.listIterator();
 
-        for(int i=0; i<carrierRow;i++){
+        // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
+        for(int i=0; i<carrierRow -1;i++){
             iterator.next();
         }
         GridRow origin = iterator.next();
@@ -29,7 +30,16 @@ public class Grid {
         origin.setOccupied(carrierColumn+2);
         origin.setOccupied(carrierColumn+3);
         origin.setOccupied(carrierColumn+4);
+    }
 
+    public String toString() {
+        String toReturn = "";
+        ListIterator<GridRow> iterator = grid.listIterator();
 
+        while(iterator.hasNext()){
+            GridRow e = iterator.next();
+            toReturn += e.toString() + "\n";
+        }
+        return toReturn;
     }
 }

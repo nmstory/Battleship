@@ -19,4 +19,11 @@ public class GridSpot {
     public boolean isHit(){
         return hit;
     }
+
+    public String toString() {
+        if(occupied){
+            return "X";
+        }
+        else{return "0";}
+    }
 }

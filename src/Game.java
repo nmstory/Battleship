@@ -10,6 +10,7 @@ public class Game /*implements IGame*/ {
 
         // REQUEST NAME ON GUI
         createPlayerOne("Nathan");
+        System.out.println(printGrid());
     }
 
     public Player createPlayerOne(String name) {
@@ -28,9 +29,7 @@ public class Game /*implements IGame*/ {
     }
 
     public String printGrid(){
-        
 
-
-        return null;
+        return playerOne.toString();
     }
 }
