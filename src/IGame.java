@@ -1,8 +1,8 @@
 public interface IGame {
-    //Grid createGrid();
-    Player createPlayerOne(Grid g, String name);
 
-    /* TO IMPLENENT:
+    Player createPlayerOne(String name);
+
+    /* TO IMPLEMENT:
     int turn(int previous);
 
     Player createPlayerTwo(Grid g, boolean AI);

@@ -1,7 +1,5 @@
 public class Player {
     private String name;
-    private int carrierRow;
-    private int carrierColumn;
 
     Grid BattleshipGrid = new Grid();
 
@@ -13,8 +11,9 @@ public class Player {
     public String getName() {
         return name;
     }
-    public void setCarrierLoc(int carrierRow, int carrierColumn){
-        BattleshipGrid.setOccupancyForCarrier(BattleshipGrid,carrierRow,carrierColumn);
+
+    public void setShipLoc(int row, int column, int shipSize){
+        BattleshipGrid.occupySpot(row,column, shipSize);
     }
 
     public String toString(){

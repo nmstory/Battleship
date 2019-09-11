@@ -17,19 +17,18 @@ public class Grid {
         }
     }
 
-    public void setOccupancyForCarrier(Grid g, int carrierRow, int carrierColumn) {
+    public void occupySpot(int gridRow, int gridColumn, int shipSize) {
         ListIterator<GridRow> iterator = grid.listIterator();
 
         // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
-        for(int i=0; i<carrierRow -1;i++){
+        for(int i=0; i<gridRow -1;i++){
             iterator.next();
         }
         GridRow origin = iterator.next();
-        origin.setOccupied(carrierColumn);
-        origin.setOccupied(carrierColumn+1);
-        origin.setOccupied(carrierColumn+2);
-        origin.setOccupied(carrierColumn+3);
-        origin.setOccupied(carrierColumn+4);
+
+        for(int i=0;i<shipSize;i++){
+            origin.setOccupied(gridColumn + i);
+        }
     }
 
     public String toString() {
