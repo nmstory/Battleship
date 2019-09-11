@@ -9,7 +9,7 @@ public class GridSpot {
         this.hit = hit;
         this.occupied = occupied;
     }
-
+    public boolean checkOccupied(){return occupied;}
     public void setOccupied(boolean occupied){
         this.occupied = occupied;
     }

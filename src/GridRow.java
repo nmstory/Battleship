@@ -15,10 +15,22 @@ public class GridRow {
         }
     }
 
-    public void setOccupied(int carrierColumn){
+    public boolean checkOccupied(int column){
+        ListIterator<GridSpot> iterator = gridRow.listIterator();
+
+        for(int i=0; i<column - 1; i++){
+            iterator.next();
+        }
+
+        GridSpot e = iterator.next();
+        return e.checkOccupied();
+
+    }
+
+    public void setOccupied(int column){
         ListIterator<GridSpot> iterator = gridRow.listIterator();
         // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
-        for(int i=0; i<carrierColumn - 1; i++){
+        for(int i=0; i<column - 1; i++){
             iterator.next();
         }
         GridSpot e = iterator.next();

@@ -17,7 +17,25 @@ public class Grid {
         }
     }
 
-    public void occupySpot(int gridRow, int gridColumn, int shipSize) {
+    public boolean checkSpot(int gridRow, int gridColumn, int shipSize){
+        ListIterator<GridRow> iterator = grid.listIterator();
+
+        // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
+        for(int i=0; i<gridRow -1;i++){
+            iterator.next();
+        }
+        GridRow origin = iterator.next();
+
+        for(int i=0;i<shipSize;i++){
+            if(origin.checkOccupied(gridColumn + i)){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public void occupySpot(int gridRow, int gridColumn, int shipSize/*, boolean vertical*/) {
         ListIterator<GridRow> iterator = grid.listIterator();
 
         // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
