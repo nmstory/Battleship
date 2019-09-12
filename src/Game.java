@@ -59,7 +59,7 @@ public class Game implements IGame {
              */
             if (!player.checkSpot(carrierRow, carrierColumn, 5)) {
                 clearSpots = false;
-                player.occupySpot(carrierRow, carrierColumn, 5);
+                player.setShipLoc(carrierRow, carrierColumn, 5);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -96,7 +96,7 @@ public class Game implements IGame {
              */
             if (!player.checkSpot(battleshipRow, battleshipColumn, 4)) {
                 clearSpots = false;
-                player.occupySpot(battleshipRow, battleshipColumn, 4);
+                player.setShipLoc(battleshipRow, battleshipColumn, 4);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -133,7 +133,7 @@ public class Game implements IGame {
              */
             if (!player.checkSpot(cruiserRow, cruiserColumn, 3)) {
                 clearSpots = false;
-                player.occupySpot(cruiserRow, cruiserColumn, 3);
+                player.setShipLoc(cruiserRow, cruiserColumn, 3);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -170,7 +170,7 @@ public class Game implements IGame {
              */
             if (!player.checkSpot(subRow, subColumn, 3)) {
                 clearSpots = false;
-                player.occupySpot(subRow, subColumn, 3);
+                player.setShipLoc(subRow, subColumn, 3);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -206,7 +206,7 @@ public class Game implements IGame {
              */
             if (!player.checkSpot(patrolRow, patrolColumn, 2)) {
                 clearSpots = false;
-                player.occupySpot(patrolRow, patrolColumn, 2);
+                player.setShipLoc(patrolRow, patrolColumn, 2);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }

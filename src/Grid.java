@@ -46,7 +46,8 @@ public class Grid {
 
         for(int i=0;i<shipSize;i++){
             origin.setOccupied(gridColumn + i);
-        }
+        }/*here*/
+        System.out.println("here1");
     }
 
     public String toString() {
