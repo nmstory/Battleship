@@ -42,11 +42,15 @@ public class Game implements IGame {
             System.out.println(name + ", please state the column of 5 width carrier");
             int carrierColumn = sc.nextInt();
 
+            System.out.println("rotate?");
+            boolean rotation = sc.nextBoolean();
+
+
             /**
              * Checking that the ship will fit within the grid.
              * If it doesn't, then the user is asked for a new location.
              */
-            try{player.checkSpot(carrierRow, carrierColumn, 5);}
+            try{player.checkShipLoc(carrierRow, carrierColumn, 5, rotation);}
             catch(NoSuchElementException e){
                 System.out.println("Unfortunatly, at least one of the gridSpots is out of the box, please try again");
                 clearSpots = true;
@@ -57,9 +61,9 @@ public class Game implements IGame {
              * Checking that there are no other ships currently on those grid spots.
              * If there are, then the user is asked for a new location.
              */
-            if (!player.checkSpot(carrierRow, carrierColumn, 5)) {
+            if (!player.checkShipLoc(carrierRow, carrierColumn, 5, rotation)) {
                 clearSpots = false;
-                player.setShipLoc(carrierRow, carrierColumn, 5);
+                player.setShipLoc(carrierRow, carrierColumn, 5, rotation);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -79,11 +83,15 @@ public class Game implements IGame {
             System.out.println(name + ", please state the column of 4 width battleship");
             int battleshipColumn = sc.nextInt();
 
+            System.out.println("rotate?");
+            boolean rotation = sc.nextBoolean();
+
+
             /**
              * Checking that the ship will fit within the grid.
              * If it doesn't, then the user is asked for a new location.
              */
-            try{player.checkSpot(battleshipRow, battleshipColumn, 4);}
+            try{player.checkShipLoc(battleshipRow, battleshipColumn, 4, rotation);}
             catch(NoSuchElementException e){
                 System.out.println("Unfortunatly, at least one of the gridSpots is out of the box, please try again");
                 clearSpots = true;
@@ -94,9 +102,9 @@ public class Game implements IGame {
              * Checking that there are no other ships currently on those grid spots.
              * If there are, then the user is asked for a new location.
              */
-            if (!player.checkSpot(battleshipRow, battleshipColumn, 4)) {
+            if (!player.checkShipLoc(battleshipRow, battleshipColumn, 4, rotation)) {
                 clearSpots = false;
-                player.setShipLoc(battleshipRow, battleshipColumn, 4);
+                player.setShipLoc(battleshipRow, battleshipColumn, 4,rotation);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -116,11 +124,15 @@ public class Game implements IGame {
             System.out.println(name + ", please state the column of 3 width cruiser");
             int cruiserColumn = sc.nextInt();
 
+
+            System.out.println("rotate?");
+            boolean rotation = sc.nextBoolean();
+
             /**
              * Checking that the ship will fit within the grid.
              * If it doesn't, then the user is asked for a new location.
              */
-            try{player.checkSpot(cruiserRow, cruiserColumn, 3);}
+            try{player.checkShipLoc(cruiserRow, cruiserColumn, 3, rotation);}
             catch(NoSuchElementException e){
                 System.out.println("Unfortunatly, at least one of the gridSpots is out of the box, please try again");
                 clearSpots = true;
@@ -131,9 +143,9 @@ public class Game implements IGame {
              * Checking that there are no other ships currently on those grid spots.
              * If there are, then the user is asked for a new location.
              */
-            if (!player.checkSpot(cruiserRow, cruiserColumn, 3)) {
+            if (!player.checkShipLoc(cruiserRow, cruiserColumn, 3, rotation)) {
                 clearSpots = false;
-                player.setShipLoc(cruiserRow, cruiserColumn, 3);
+                player.setShipLoc(cruiserRow, cruiserColumn, 3,rotation);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -153,11 +165,14 @@ public class Game implements IGame {
             System.out.println(name + ", please state the column of 3 width sub");
             int subColumn = sc.nextInt();
 
+            System.out.println("rotate?");
+            boolean rotation = sc.nextBoolean();
+
             /**
              * Checking that the ship will fit within the grid.
              * If it doesn't, then the user is asked for a new location.
              */
-            try{player.checkSpot(subRow, subColumn, 3);}
+            try{player.checkShipLoc(subRow, subColumn, 3, rotation);}
             catch(NoSuchElementException e){
                 System.out.println("Unfortunatly, at least one of the gridSpots is out of the box, please try again");
                 clearSpots = true;
@@ -168,9 +183,9 @@ public class Game implements IGame {
              * Checking that there are no other ships currently on those grid spots.
              * If there are, then the user is asked for a new location.
              */
-            if (!player.checkSpot(subRow, subColumn, 3)) {
+            if (!player.checkShipLoc(subRow, subColumn, 3, rotation)) {
                 clearSpots = false;
-                player.setShipLoc(subRow, subColumn, 3);
+                player.setShipLoc(subRow, subColumn, 3,rotation);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
@@ -189,11 +204,14 @@ public class Game implements IGame {
             System.out.println(name + ", please state the column of 2 width patrol boat");
             int patrolColumn = sc.nextInt();
 
+            System.out.println("rotate?");
+            boolean rotation = sc.nextBoolean();
+
             /**
              * Checking that the ship will fit within the grid.
              * If it doesn't, then the user is asked for a new location.
              */
-            try{player.checkSpot(patrolRow, patrolColumn, 2);}
+            try{player.checkShipLoc(patrolRow, patrolColumn, 2, rotation);}
             catch(NoSuchElementException e){
                 System.out.println("Unfortunatly, at least one of the gridSpots is out of the box, please try again");
                 clearSpots = true;
@@ -204,9 +222,9 @@ public class Game implements IGame {
              * Checking that there are no other ships currently on those grid spots.
              * If there are, then the user is asked for a new location.
              */
-            if (!player.checkSpot(patrolRow, patrolColumn, 2)) {
+            if (!player.checkShipLoc(patrolRow, patrolColumn, 2, rotation)) {
                 clearSpots = false;
-                player.setShipLoc(patrolRow, patrolColumn, 2);
+                player.setShipLoc(patrolRow, patrolColumn, 2,rotation);
             } else {
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }

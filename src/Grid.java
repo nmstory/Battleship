@@ -17,38 +17,71 @@ public class Grid {
         }
     }
 
-    public boolean checkSpot(int gridRow, int gridColumn, int shipSize){
+
+    public boolean checkSpot(int gridRow, int gridColumn, int shipSize, boolean rotation){
         ListIterator<GridRow> iterator = grid.listIterator();
 
-        // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
-        for(int i=0; i<gridRow -1;i++){
-            iterator.next();
-        }
-        GridRow origin = iterator.next();
+        if(rotation) { // True - Vertical
+            //Jump to column
+            for (int i = 0; i < gridRow - 1; i++) {
+                iterator.next();
+            }
 
-        for(int i=0;i<shipSize;i++){
-            if(origin.checkOccupied(gridColumn + i)){
-                return true;
+            for(int i=0; i<shipSize; i++){
+                GridRow currentRow = iterator.next();
+                if(currentRow.checkOccupied(gridColumn)){
+                    return true;
+                }
+            }return false;
+        }
+
+        else { // false - horizontal
+            // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
+            for (int i = 0; i < gridRow - 1; i++) {
+                iterator.next();
+            }
+            GridRow origin = iterator.next();
+
+            for (int i = 0; i < shipSize; i++) {
+                if (origin.checkOccupied(gridColumn + i)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public void occupySpot(int gridRow, int gridColumn, int shipSize, boolean rotation) {
+        ListIterator<GridRow> iterator = grid.listIterator();
+
+        if(rotation) { // True - vertical
+            //Jump to column
+            for (int i = 0; i < gridRow - 1; i++) {
+                iterator.next();
+            }
+
+            for(int i=0; i<shipSize; i++){
+                GridRow currentRow = iterator.next();
+                currentRow.setOccupied(gridColumn);
             }
         }
-        return false;
 
-    }
+        else { // false - horizontal
+            // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
+            for (int i = 0; i < gridRow - 1; i++) {
+                iterator.next();
+            }
+            GridRow origin = iterator.next();
 
-    public void occupySpot(int gridRow, int gridColumn, int shipSize/*, boolean vertical*/) {
-        ListIterator<GridRow> iterator = grid.listIterator();
-
-        // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
-        for(int i=0; i<gridRow -1;i++){
-            iterator.next();
+            for (int i = 0; i < shipSize; i++) {
+                origin.setOccupied(gridColumn + i);
+            }
         }
-        GridRow origin = iterator.next();
 
-        for(int i=0;i<shipSize;i++){
-            origin.setOccupied(gridColumn + i);
-        }/*here*/
-        System.out.println("here1");
     }
+
+
+
 
     public String toString() {
         String toReturn = "";

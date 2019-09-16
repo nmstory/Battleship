@@ -24,7 +24,6 @@ public class GridRow {
 
         GridSpot e = iterator.next();
         return e.checkOccupied();
-
     }
 
     public void setOccupied(int column){

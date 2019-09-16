@@ -2,6 +2,8 @@ public interface IGame {
 
     Player createPlayerOne(String name);
 
+    //setships?
+
     /* TO IMPLEMENT:
     int turn(int previous);
 

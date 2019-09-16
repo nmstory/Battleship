@@ -11,9 +11,14 @@ public class Player extends Grid{
     public String getName() {
         return name;
     }
-    /* Now extended Grid, so doing player.occupySpot*/
-    public void setShipLoc(int row, int column, int shipSize){
-        BattleshipGrid.occupySpot(row,column, shipSize);
+
+    public void setShipLoc(int row, int column, int shipSize, boolean rotation){
+
+        BattleshipGrid.occupySpot(row,column, shipSize, rotation);
+    }
+
+    public boolean checkShipLoc(int row, int column, int shipSize, boolean rotation){
+        return BattleshipGrid.checkSpot(row,column, shipSize, rotation);
     }
 
     public String toString(){
