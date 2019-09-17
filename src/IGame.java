@@ -1,6 +1,6 @@
 public interface IGame {
 
-    Player createPlayerOne(String name);
+    Player createPlayerOne(String name, boolean isAI);
 
     //setships?
 

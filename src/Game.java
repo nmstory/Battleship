@@ -5,18 +5,27 @@ public class Game implements IGame {
 
     private boolean clearSpots = true;
 
-    Grid playerTwoBattleshipGrid = new Grid();
     Player playerOne = new Player("Nathan");
 
     public Game() {
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("WELCOME TO BATTLESHIP\n");
+        System.out.println("What is your name?");
+        String playerName = sc.nextLine();
 
-        // REQUEST NAME ON GUI
-        createPlayerOne("Nathan");
-        System.out.println(printGrid());
+        System.out.println("Is the second player an AI (answer true/false)");
+        boolean isAI = sc.nextBoolean();
+
+        createPlayerOne(playerName, false);
+        System.out.println(printGrid(playerOne));
+
+        if (isAI) {
+            
+        }
     }
 
-    public Player createPlayerOne(String name) {
+    public Player createPlayer(String name, boolean isAI) {
 
         setShips(playerOne, name);
 
@@ -231,8 +240,8 @@ public class Game implements IGame {
         }
     }
 
-    public String printGrid(){
+    public String printGrid(Player player){
 
-        return playerOne.toString();
+        return player.toString();
     }
 }
