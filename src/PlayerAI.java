@@ -9,7 +9,14 @@ public class PlayerAI{
     int max=4;
 
     public static final int MIN = 0;
-    public static final int CARRIER
+    public static final int CARRIEr;
+
+    /**
+     * if rotation is true /false - adjust/set max accordingly to save boxing in the ships
+     *
+     * +need checks to ensure there is a ship there currently
+     * @param name
+     */
 
 
 
