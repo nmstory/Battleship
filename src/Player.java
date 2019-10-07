@@ -9,6 +9,7 @@ public class Player{
 
     public Player(String name) {
         this.name = name;
+        setShipsPlayer(name);
 
     }
 
@@ -233,5 +234,6 @@ public class Player{
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
         }
+
     }
 }
