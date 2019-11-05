@@ -22,24 +22,19 @@ public class Game implements IGame {
         System.out.println("Is the second player an AI (answer true/false)");
         boolean isAI = sc.nextBoolean();
 
-        /*
-        //playerOne = createPlayer(playerOneName, false);
         Player playerOne = new Player(playerOneName);
-        System.out.println(printGrid(playerOne));*/
+        System.out.println(printGrid(playerOne));
 
         if(!isAI){System.out.println("What is the name of the second player?");
-        String playerTwoName = sc.nextLine();
+        Scanner sc2= new Scanner(System.in);
+        String playerTwoName = sc2.nextLine();
         Player playerTwo = new Player(playerTwoName);}
 
-        else{/*AI.setShipsAI("AI");*/}PlayerAI playerAI = new PlayerAI();
-        System.out.println(printGridAI(playerAI));
+        else{PlayerAI playerAI = new PlayerAI();
+        System.out.println(printGridAI(playerAI));}
     }
 
-    /**
-     * CONDENSE!!!
-     */
-    public String printGrid(Player player){
-
+    public String printGrid(Object player){
         return player.toString();
     }
 
