@@ -11,34 +11,39 @@ import java.util.Scanner;
 
 public class Game implements IGame {
 
+    Scanner sc = new Scanner(System.in);
+    String playerOneName;
+    String playerTwoName;
 
     public Game() {
-        Scanner sc = new Scanner(System.in);
 
+        //creating + setting up players
         System.out.println("WELCOME TO BATTLESHIP\n");
         System.out.println("What is your name?");
-        String playerOneName = sc.nextLine();
-
-        System.out.println("Is the second player an AI (answer true/false)");
-        boolean isAI = sc.nextBoolean();
+        playerOneName = sc.nextLine();
 
         Player playerOne = new Player(playerOneName);
-        System.out.println(printGrid(playerOne));
+        System.out.println(printGrid(playerOne)); //test line
 
-        if(!isAI){System.out.println("What is the name of the second player?");
-        Scanner sc2= new Scanner(System.in);
-        String playerTwoName = sc2.nextLine();
-        Player playerTwo = new Player(playerTwoName);}
+        System.out.println("What is the name of the second player?");
+        Scanner sc2 = new Scanner(System.in);
+        playerTwoName = sc2.nextLine();
 
-        else{PlayerAI playerAI = new PlayerAI();
-        System.out.println(printGridAI(playerAI));}
+        Player playerTwo = new Player(playerTwoName);
+        System.out.println(printGrid(playerTwo)); //test line
+
+
+
+    }
+
+
+    public void play() {
+
+
     }
 
     public String printGrid(Object player){
         return player.toString();
     }
 
-    public String printGridAI(PlayerAI playerAI){
-        return playerAI.toString();
-    }
 }
