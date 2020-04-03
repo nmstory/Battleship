@@ -37,7 +37,7 @@ public class Game implements IGame {
         playerTwoName = sc2.nextLine();
         playerTwo = new Player(playerTwoName);
         System.out.println(printGrid(playerTwo)); //test line
-        
+
 
         /** randomize who plays first **/
         if(ThreadLocalRandom.current().nextInt(0,1) >= 0.5){
@@ -70,6 +70,7 @@ public class Game implements IGame {
 
     private boolean finished(Player playerOne, Player playerTwo){
         //checking if either boards are completely done
+        return true;
     }
 
     public String printGrid(Object player){
