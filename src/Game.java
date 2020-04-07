@@ -57,6 +57,9 @@ public class Game implements IGame {
             //switching between players
             for(Player p: players){
 
+                if(finished()){
+                    
+                }
             }
 
 
@@ -68,8 +71,10 @@ public class Game implements IGame {
         //define round
     }
 
-    private boolean finished(Player playerOne, Player playerTwo){
+    private boolean finished(){
         //checking if either boards are completely done
+        // check playerOne / playerTwo - not taking parameters for global variable
+        /** are global variables a done thing in java? **/
         return true;
     }
 
