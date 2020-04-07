@@ -6,39 +6,80 @@
  * comment comment comment
  * catching errors ie enter number in boolean/not entering true/false
  */
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Game implements IGame {
 
+    Scanner sc = new Scanner(System.in);
+    String playerOneName;
+    String playerTwoName;
+    Player playerOne;
+    Player playerTwo;
+    ArrayList<Player> players;
+    boolean inPlay = true;
 
     public Game() {
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("WELCOME TO BATTLESHIP\n");
-        System.out.println("What is your name?");
-        String playerOneName = sc.nextLine();
 
-        System.out.println("Is the second player an AI (answer true/false)");
-        boolean isAI = sc.nextBoolean();
+        /** Creating Player One **/
+        System.out.println("What is the name of the first player?");
+        playerOneName = sc.nextLine();
+        playerOne = new Player(playerOneName);
+        System.out.println(printGrid(playerOne)); //test line
 
-        Player playerOne = new Player(playerOneName);
-        System.out.println(printGrid(playerOne));
+        /** Creating Player Two **/
+        System.out.println("What is the name of the second player?");
+        Scanner sc2 = new Scanner(System.in);
+        playerTwoName = sc2.nextLine();
+        playerTwo = new Player(playerTwoName);
+        System.out.println(printGrid(playerTwo)); //test line
 
-        if(!isAI){System.out.println("What is the name of the second player?");
-        Scanner sc2= new Scanner(System.in);
-        String playerTwoName = sc2.nextLine();
-        Player playerTwo = new Player(playerTwoName);}
 
-        else{PlayerAI playerAI = new PlayerAI();
-        System.out.println(printGridAI(playerAI));}
+        /** randomize who plays first **/
+        if(ThreadLocalRandom.current().nextInt(0,1) >= 0.5){
+            System.out.println(playerOneName + " plays first!");
+            players.add(playerOne);
+            players.add(playerTwo); }
+        else {
+            System.out.println(playerTwoName + " plays first!");
+            players.add(playerTwo);
+            players.add(playerOne); }
+    }
+
+
+    public void play() {
+
+        while(inPlay){
+            //switching between players
+            for(Player p: players){
+
+                if(finished()){
+                    
+                }
+            }
+
+
+        }
+
+    }
+
+    private void round(Player player) {
+        //define round
+    }
+
+    private boolean finished(){
+        //checking if either boards are completely done
+        // check playerOne / playerTwo - not taking parameters for global variable
+        /** are global variables a done thing in java? **/
+        return true;
     }
 
     public String printGrid(Object player){
         return player.toString();
     }
 
-    public String printGridAI(PlayerAI playerAI){
-        return playerAI.toString();
-    }
 }
