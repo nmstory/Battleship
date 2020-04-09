@@ -18,7 +18,7 @@ public class Grid {
     }
 
 
-    public boolean checkSpot(int gridRow, int gridColumn, int shipSize, boolean rotation){
+    public boolean checkSpots(int gridRow, int gridColumn, int shipSize, boolean rotation){
         ListIterator<GridRow> iterator = grid.listIterator();
 
         if(rotation) { // True - Vertical
@@ -79,6 +79,48 @@ public class Grid {
         }
 
     }
+
+    public void hitSpot(int column, int row){
+        ListIterator<GridRow> iterator = grid.listIterator();
+
+        //Get to place
+        for (int i = 0; i < row - 1; i++) {
+            iterator.next();
+        }
+
+        GridRow rowToBeHit = iterator.next();
+
+        rowToBeHit.setHit(column);
+    }
+
+    public boolean checkOccupiedSpot(int column, int row){
+        ListIterator<GridRow> iterator = grid.listIterator();
+
+        //Get to place
+        for (int i = 0; i < row - 1; i++) {
+            iterator.next();
+        }
+
+        GridRow rowToBeHit = iterator.next();
+
+        return rowToBeHit.checkOccupied(column);
+    }
+
+    public boolean alreadyHit(int column, int row){
+        ListIterator<GridRow> iterator = grid.listIterator();
+
+        //Get to place
+        for (int i = 0; i < row - 1; i++) {
+            iterator.next();
+        }
+
+        GridRow rowToBeHit = iterator.next();
+
+        return rowToBeHit.getHit(column);
+    }
+
+
+
 
 
 
