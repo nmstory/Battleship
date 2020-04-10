@@ -38,7 +38,7 @@ public class Player{
     }
 
     public boolean checkShipLoc(int row, int column, int shipSize, boolean rotation){
-        return BattleshipGrid.checkSpot(row,column, shipSize, rotation);
+        return BattleshipGrid.checkSpots(row,column, shipSize, rotation);
     }
 
     public String toString(){
@@ -84,5 +84,21 @@ public class Player{
                 System.out.println("Unfortunatly, at least one of the gridSpots is already occupied by another ship, please choose again");
             }
         }
+    }
+
+    public void hitShip(int row, int column){
+        //BattleShipGrid.hitSpot
+        BattleshipGrid.hitSpot(row, column);
+    }
+
+    /** checking two things:
+     * 1. Does a ship exist in that spot
+     * 2. Has that spot already been hit
+     *
+     *
+     * EXPLAIN USE OF XOR   **/
+    public boolean canBeHit(int row, int column){
+
+        return BattleshipGrid.alreadyHit(column, row) ^ BattleshipGrid.checkOccupiedSpot(column, row);
     }
 }
