@@ -10,17 +10,23 @@ public class GridSpot {
         this.occupied = occupied;
     }
     public boolean checkOccupied(){return occupied;}
-    public void setOccupied(boolean occupied){
-        this.occupied = occupied;
+    public void occupy(){
+        this.occupied = true;
     }
-    public boolean getOccupied(){
+    public void hit(){
+        this.hit = true;
+    }
+    public boolean isOccupied(){
         return this.occupied;
-    }
+    } //function needed?
     public boolean isHit(){
         return hit;
     }
 
     public String toString() {
+        if(hit){
+            return "!";
+        }
         if(occupied){
             return "X";
         }

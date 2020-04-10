@@ -12,3 +12,6 @@ DONE:
 PLANS:
 * Turn based system to play
 * Use the Swing framework to create a simple GUI
+
+BATTLESHIP 2.0:
+* Play with AI
