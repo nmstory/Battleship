@@ -9,17 +9,15 @@ public class GridSpot {
         this.hit = hit;
         this.occupied = occupied;
     }
-    public boolean checkOccupied(){return occupied;}
-    public void occupy(){
+
+    public void setOccupied(){
         this.occupied = true;
     }
-    public void hit(){
+    public boolean getOccupied(){return occupied;} //this.? todo for some reason, i think this. doesnt work
+    public void setHit(){
         this.hit = true;
     }
-    public boolean isOccupied(){
-        return this.occupied;
-    } //function needed?
-    public boolean isHit(){
+    public boolean getHit(){
         return hit;
     }
 

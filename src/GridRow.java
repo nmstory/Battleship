@@ -15,6 +15,18 @@ public class GridRow {
         }
     }
 
+    public boolean checkDisplaysOccupied(int column){
+        ListIterator<GridSpot> iterator = gridRow.listIterator();
+
+        for(int i=0; i<column - 1; i++){
+            iterator.next();
+        }
+
+        GridSpot e = iterator.next();
+        return (e.toString() == "X");
+    }
+
+
     public boolean checkOccupied(int column){
         ListIterator<GridSpot> iterator = gridRow.listIterator();
 
@@ -23,7 +35,7 @@ public class GridRow {
         }
 
         GridSpot e = iterator.next();
-        return e.checkOccupied();
+        return e.getOccupied(); //todo THIS NEEDS TO BE HANDLED BETTER! WERE CHECKING OCCUPIED BY SEEING TOSTRING..
     }
 
     public void setOccupied(int column){
@@ -33,17 +45,7 @@ public class GridRow {
             iterator.next();
         }
         GridSpot e = iterator.next();
-        e.occupy();
-    }
-
-    public void setHit(int column){
-        ListIterator<GridSpot> iterator = gridRow.listIterator();
-        // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
-        for(int i=0; i<column - 1; i++){
-            iterator.next();
-        }
-        GridSpot e = iterator.next();
-        e.hit();
+        e.setOccupied();
     }
 
     public boolean getHit(int column){
@@ -53,8 +55,20 @@ public class GridRow {
             iterator.next();
         }
         GridSpot e = iterator.next();
-        return e.isHit();
+        return e.getHit();
     }
+
+    public void setHit(int column){
+        ListIterator<GridSpot> iterator = gridRow.listIterator();
+        // Minus 1 from the count because a LinkedList starts from 0, but the count of the GUI starts from 1
+        for(int i=0; i<column - 1; i++){
+            iterator.next();
+        }
+        GridSpot e = iterator.next();
+        e.setHit();
+    }
+
+
 
     public String toString(){
         String toReturn = "";

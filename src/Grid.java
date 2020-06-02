@@ -6,18 +6,19 @@ public class Grid {
 
     // each player creates a grid, and each grid is actually a linkedlist
     List<GridRow> grid = new LinkedList<>();
+    private static int MAX_SIZE = 8; //please define me
 
     //Constructor for creating the Battleships Grid
     public Grid() {
 
         // Initial iterator states the rows, 0-7
-        for(int i=0; i<8; i++){
+        for(int i=0; i<MAX_SIZE; i++){
             ListIterator<GridRow> iterator = grid.listIterator();
             iterator.add(new GridRow(i));
         }
     }
 
-
+    //used for checking spots when wanting to place a ship of shipSize size?
     public boolean checkSpots(int gridRow, int gridColumn, int shipSize, boolean rotation){
         ListIterator<GridRow> iterator = grid.listIterator();
 
@@ -51,7 +52,7 @@ public class Grid {
         }
     }
 
-    public void occupySpot(int gridRow, int gridColumn, int shipSize, boolean rotation) {
+    public void occupySpots(int gridRow, int gridColumn, int shipSize, boolean rotation) {
         ListIterator<GridRow> iterator = grid.listIterator();
 
         if(rotation) { // True - vertical
@@ -93,20 +94,8 @@ public class Grid {
         rowToBeHit.setHit(column);
     }
 
-    public boolean checkOccupiedSpot(int column, int row){
-        ListIterator<GridRow> iterator = grid.listIterator();
-
-        //Get to place
-        for (int i = 0; i < row - 1; i++) {
-            iterator.next();
-        }
-
-        GridRow rowToBeHit = iterator.next();
-
-        return rowToBeHit.checkOccupied(column);
-    }
-
-    public boolean alreadyHit(int column, int row){
+    //rename to check hit?
+    public boolean checkHit(int column, int row){
         ListIterator<GridRow> iterator = grid.listIterator();
 
         //Get to place
@@ -121,7 +110,31 @@ public class Grid {
 
 
 
+    public boolean isOccupied(int column, int row){
+        ListIterator<GridRow> iterator = grid.listIterator();
 
+        //Get to place
+        for (int i = 0; i < row - 1; i++) {
+            iterator.next();
+        }
+
+        GridRow rowToBeHit = iterator.next();
+
+        return rowToBeHit.checkOccupied(column);
+    }
+
+    public boolean displaysOccupied(int column, int row){
+        ListIterator<GridRow> iterator = grid.listIterator();
+
+        //Get to place
+        for (int i = 0; i < row - 1; i++) {
+            iterator.next();
+        }
+
+        GridRow rowToBeHit = iterator.next();
+
+        return rowToBeHit.checkDisplaysOccupied(column);
+    }
 
 
 
