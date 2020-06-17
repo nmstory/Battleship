@@ -63,7 +63,7 @@ public class Player {
      *
      * @param shipSize - Size of the ship being placed
      * @param shipName - Name of the ship being placed
-     * @throws InterruptedException
+     * @throws InterruptedException - If a problem arises with the Thread.sleep()
      */
     public void setShips(int shipSize, String shipName) throws InterruptedException{
         clearSpots = true;
@@ -111,11 +111,6 @@ public class Player {
             } catch (NoSuchElementException e) {
                 System.out.println("Unfortunately, at least one of the gridSpots is out of the box, please try again");
                 clearSpots = true;
-
-//                try { Thread.sleep(3000);
-//                } catch (InterruptedException r) {
-//                    Thread.currentThread().interrupt(); }
-//                continue;
             }
 
             /*

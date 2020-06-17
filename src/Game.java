@@ -24,8 +24,9 @@ public class Game {
 
     /**
      * Default Constructor for the Game class.
-     * <p>
+     *
      * Here, I've used the constructor as a way to create both players, and decide who goes first.
+     * @throws InterruptedException - If a problem arises with the Thread.sleep() in setShips()
      */
     public Game() throws InterruptedException {
 
