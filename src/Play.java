@@ -14,8 +14,11 @@ public class Play {
      * @param args - arguments passed by the command line when starting the program
      */
     public static void main(String[] args) {
-        Game g = new Game();
-        g.play();
+        try {
+            Game g = new Game();
+            g.play();
+        } catch(InterruptedException e){
+        }
 
     }
 }
