@@ -1,7 +1,9 @@
 # Battleship
 Based around the original board game Battleship, created by Hasbro.
 
-This is a side project that I've used to keep up my Java skills, with a strong emphasis on Object Orientation.
+Originally developed in the Summer of 2022, this was a side project that I've used to keep up my Java skills, with a strong emphasis on Object Orientation.
+
+Click [here](https://www.youtube.com/watch?v=aQdkfcBG9o4) to watch a demo!
 
 ## Getting Started
 These instructions provide a basic method for you to get Battleship running on your own machine!
